@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Comment Analyzer</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-header">
+      <div class="logo">
+        <p>Tube Sentiment</p>
+      </div>
+      <a id="menu-icon" class="menu-icon" onclick="onMenuClick()">
+        <i class="fa fa-bars"></i>
+      </a>
+
+      <div id="navigation-bar" class="nav-bar">
+        <a href="#" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact us</a>
+      </div>
+    
+    </div>
+
+    
+    <section id ="home" class="analyzer-section">
+        <div class="left-content">
+            <h1>YouTube Comment<br>Sentiment Analyzer</h1>
+            <h2>Enter YouTube Video URL</h2>
+            <div class="input-box">
+                <input id="videoUrl" type="text" placeholder="Paste YouTube link here..." />
+                <p id="errorMessage" style="color: red;"></p>
+                <!--<button>Analyze</button>-->
+                <button onclick="analyzeComments()">Analyze</button>
+
+            </div>
+        </div>
+        <!--  -->
+        <div class="right-content" id="chart-container" style="display: none;" >
+          <canvas id="sentimentChart" width="300" height="300"></canvas>
+          <p class="chart-caption">Sentiment Analysis Result</p>
+        </div>
+    </section>
+
+    <!--
+    <section class="about-section">
+        <h2>About the Tool</h2>
+        <p>
+          This tool helps analyze YouTube comments using AI-powered sentiment analysis
+          to give you insights into how people feel about videos.
+        </p>
+      </section>
+    -->
+
+    
+    <section id="about" class="tool-section">
+        <h2>About the Tool</h2>
+        <p class="description">
+          This tool helps analyze YouTube comments using AI-powered sentiment analysis
+          to give you insights into how people feel about videos.
+        </p>
+      
+        <div class="tool-content">
+          <div class="tool-image">
+            <img src="why-sentiment.png" alt="Sentiment Analysis Illustration">
+          </div>
+          <div class="tool-text">
+            <h3>Why Sentiment Analysis?</h3>
+            <p>
+              Understanding the sentiment behind comments is vital for content creators and
+              brands to gauge audience perception. With our tool, you can easily assess how
+              people feel—whether positive, negative, or neutral—about any YouTube video.
+            </p>
+          </div>
+        </div>
+      
+        <div class="tool-features">
+          <div class="feature">
+            <div class="emoji">😊 😐 😡</div>
+            <h4>Sentiment Breakdown</h4>
+            <p>Detects positive, neutral, and negative comments</p>
+          </div>
+          <div class="feature">
+            <div class="emoji">⚙️🤖</div>
+            <h4>AI-Powered</h4>
+            <p>Uses cutting-edge AI to analyze text with high accuracy</p>
+          </div>
+          <div class="feature">
+            <div class="emoji">📊✨</div>
+            <h4>Visualization</h4>
+            <p>Provides easy-to-understand visual reports</p>
+          </div>
+        </div>
+      
+        <!--<h3 class="stack-heading">Technology Stack</h3>
+        <div class="tech-stack">
+          <span>⚛️ React</span>
+          <span>🐍 Python</span>
+          <span>⚡ FastAPI</span>
+          <span>🌊 Tailwind CSS</span>
+          <span>⚡ Vite</span>
+          <span>📺 YouTube API</span>
+          <span>🦄 Uvicorn</span>
+          <span>📈 Chart.js</span>
+        </div>-->
+
+        <h3>Technology Stack</h3><br>
+        <div class="stack-heading">
+            
+            <div class="tech-stack">
+              <div class="emoji">⚛️</div>
+              <h4>React</h4>
+            </div>
+            <div class="tech-stack">
+              <div class="emoji">🐍</div>
+              <h4>AI-Python</h4>
+            </div>
+            <div class="tech-stack">
+              <div class="emoji">🦄</div>
+              <h4>Uvicorn</h4>
+            </div>
+          </div>
+
+
+
+
+    </section>
+
+
+
+
+    <section id ="features" class="features-section">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+        
+          <div class="feature-card">
+            <div class="icon">✅</div>
+            <div class="feature-card-content">
+            <h4>AI-powered Sentiment Analysis</h4>
+            <p>Advanced AI detects sentiment with high accuracy.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="icon">✨</div>
+            <div class="feature-card-content">
+            <h4>Detects Positive, Neutral & Negative</h4>
+            <p>Get a detailed breakdown of audience reactions.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="icon">🕒</div>
+            <div class="feature-card-content">
+            <h4>Works on Any YouTube Video</h4>
+            <p>Supports analysis for videos of any length.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="icon">📊</div>
+            <div class="feature-card-content">
+            <h4>Real-time Analysis with Visuals</h4>
+            <p>See insights with interactive visual reports.</p>
+            </div>
+          </div>
+        </div>
+
+
+      </section>
+      <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Email us at <a href="mailto:support@sentimentanalyzer.com">support@sentimentanalyzer.com</a></p>
+      </section>
+      
+
+      <footer class="footer">
+        © 2025 Sentiment Analyzer. All rights reserved.
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src = "script.js"></script>
+  </body>
+</html>
+
+
+      <!-- it show a test pie chart
+      <script>
+        window.onload = function () {
+          const ctx = document.getElementById("sentimentChart").getContext("2d");
+        
+          new Chart(ctx, {
+            type: "pie",
+            data: {
+              labels: ["Positive", "Neutral", "Negative"],
+              datasets: [{
+                data: [30, 40, 30],
+                backgroundColor: ["#4CAF50", "#FFC107", "#F44336"]
+              }]
+            }
+          });
+        
+          document.getElementById("chart-container").style.display = "block";
+        };
+        </script>
+         -->
+      
+
+
+
+
